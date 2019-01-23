@@ -50,7 +50,6 @@ public class TipoServicoDAOImpl implements TipoServicoDAO {
 				tipoServico2.setNome(tipoServico.getNome());
 			}
 		}
-
 		return tipoServico;
 	}
 

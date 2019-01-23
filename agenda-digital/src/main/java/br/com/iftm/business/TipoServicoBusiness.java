@@ -11,7 +11,7 @@ public interface TipoServicoBusiness {
 	 * solicitar a camada dea acesso a dados que persista a Objeto
 	 * {@link TipoServico}
 	 * 
-	 * @param tipoServico Objeto a ser persisito.
+	 * @param tipoServico Objeto a ser persistido.
 	 * @return Objeto persistido.
 	 * @throws BusinessException
 	 */
@@ -30,7 +30,7 @@ public interface TipoServicoBusiness {
 	 * Metodo responsavel por recuperar da base de dados todos os objetos
 	 * {@link TipoServico}, cujo seu nome possua parte do parametro Nome.
 	 * 
-	 * @param nome Parte do nome a ser buscado
+	 * @param name Parte do nome a ser buscado
 	 * @return Lista de {@link TipoServico}
 	 * @throws BusinessException
 	 */
