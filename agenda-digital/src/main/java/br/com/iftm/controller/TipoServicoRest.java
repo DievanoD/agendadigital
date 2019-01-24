@@ -37,6 +37,7 @@ public class TipoServicoRest {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		}
 

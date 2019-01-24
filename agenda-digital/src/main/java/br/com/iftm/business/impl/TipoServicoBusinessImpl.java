@@ -2,21 +2,26 @@ package br.com.iftm.business.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import br.com.iftm.business.BusinessException;
 import br.com.iftm.business.TipoServicoBusiness;
 import br.com.iftm.dao.TipoServicoDAO;
-import br.com.iftm.dao.impl.TipoServicoDAOImpl;
 import br.com.iftm.entity.TipoServico;
 
 @Service
+@Transactional
 public class TipoServicoBusinessImpl implements TipoServicoBusiness {
 
-	private TipoServicoDAO dao = new TipoServicoDAOImpl();
+	@Autowired
+	private TipoServicoDAO dao;
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public TipoServico create(TipoServico tipoServico) throws BusinessException {
 
 		if (StringUtils.isEmpty(tipoServico.getNome())) {
@@ -27,11 +32,13 @@ public class TipoServicoBusinessImpl implements TipoServicoBusiness {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<TipoServico> read() throws BusinessException {
 		return dao.read();
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<TipoServico> readByName(String name) throws BusinessException {
 		if (StringUtils.isEmpty(name)) {
 			throw new BusinessException("Nome Requerido");
@@ -41,6 +48,7 @@ public class TipoServicoBusinessImpl implements TipoServicoBusiness {
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public TipoServico update(TipoServico tipoServico) throws BusinessException {
 		if (tipoServico.getCodigo() == null) {
 			throw new BusinessException("Codigo Requerido");
@@ -54,6 +62,7 @@ public class TipoServicoBusinessImpl implements TipoServicoBusiness {
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void delete(Integer id) throws BusinessException {
 		if (id == null) {
 			throw new BusinessException("Codigo Requerido");
