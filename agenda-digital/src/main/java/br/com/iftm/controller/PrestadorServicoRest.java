@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.iftm.business.BusinessException;
 import br.com.iftm.business.PrestadorServicoBusiness;
+import br.com.iftm.controller.dto.FiltroPrestadorDTO;
 import br.com.iftm.entity.PrestadorServico;
 
 @RestController
@@ -42,6 +43,19 @@ public class PrestadorServicoRest {
 	// read
 	@GetMapping
 	public ResponseEntity<?> read() {
+		try {
+			return ResponseEntity.ok(business.read());
+		} catch (BusinessException e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(e);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.badRequest().body(e);
+		}
+	}
+
+	@PostMapping("/filtros")
+	public ResponseEntity<?> readByFiltros(@RequestBody FiltroPrestadorDTO filtroPrestadorDTO) {
 		try {
 			return ResponseEntity.ok(business.read());
 		} catch (BusinessException e) {
