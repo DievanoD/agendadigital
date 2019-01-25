@@ -32,6 +32,7 @@ public class PrestadorServicoRest {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		}
 
@@ -47,6 +48,7 @@ public class PrestadorServicoRest {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		}
 	}
@@ -66,6 +68,7 @@ public class PrestadorServicoRest {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		}
 
@@ -81,6 +84,7 @@ public class PrestadorServicoRest {
 			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		} catch (Exception e) {
+			e.printStackTrace();
 			return ResponseEntity.badRequest().body(e);
 		}
 

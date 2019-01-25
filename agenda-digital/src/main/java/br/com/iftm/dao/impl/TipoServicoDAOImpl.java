@@ -1,10 +1,10 @@
 package br.com.iftm.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,8 +15,8 @@ import br.com.iftm.entity.TipoServico;
 @Repository
 public class TipoServicoDAOImpl implements TipoServicoDAO {
 
-	private List<TipoServico> lista = new ArrayList<>();
-	private int indice = 0;
+//	private List<TipoServico> lista = new ArrayList<>();
+//	private int indice = 0;
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -42,7 +42,7 @@ public class TipoServicoDAOImpl implements TipoServicoDAO {
 
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(TipoServico.class);
 
-		criteria.add(Restrictions.like("nome", name).ignoreCase());
+		criteria.add(Restrictions.like("nome", name, MatchMode.ANYWHERE).ignoreCase());
 
 		return criteria.list();
 	}
